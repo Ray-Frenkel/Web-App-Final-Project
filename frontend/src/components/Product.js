@@ -34,6 +34,7 @@ function Product(props) {
       <Card.Body>
         <Card.Title className="card-title">Winery: {product.winery}</Card.Title>
         <Card.Text className="card-text">Wine Description: {product.wine}</Card.Text>
+        {/* <Card.Text className="card-text">Location: {product.location}</Card.Text> */}
         <Card.Text className="card-text">Price: ${product.price}</Card.Text>
         <Button className="btnproduct" onClick={() => addToCartHandler(product)}>Add to cart</Button>
       </Card.Body>
