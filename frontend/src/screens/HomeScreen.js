@@ -28,6 +28,7 @@ function HomeScreen() {
     loading: true,
     error: '',
   });
+  const [winery, setWinery] = useState('');
   // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -39,16 +40,37 @@ function HomeScreen() {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
 
-      // setProducts(result.data);
+
     };
     fetchData();
   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
+      try {
+        const result = await axios.get(`/api/products/winery/${winery}`);
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+      }
+
+
+    };
+    fetchData();
+  }, [winery]);
   return (
     <div>
       <Helmet>
-        <title>Ultimate Cereal Site</title>
+        <title>Ultimate Wine Store</title>
       </Helmet>
       <h1>Our Products</h1>
+      <label for="wineries">Choose a Winery:</label>
+
+      <select name="wineries" id="cars" onChange={e => setWinery(e.target.value)}>
+        <option value="dom">Domaine de La Romanée-Conti</option>
+        <option value="saab">Domaine Coche-Dury</option>
+      </select>
+
       <div className="products">
         {loading ? (
           <LoadingBox />

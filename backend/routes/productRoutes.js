@@ -24,5 +24,13 @@ productRouter.get('/:id', async (req, res) => {
     res.status(404).send({ message: 'Product Not Found' });
   }
 });
+productRouter.get('/winery/:winery', async (req, res) => {
+  const product = await Product.find()
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
 
 export default productRouter;

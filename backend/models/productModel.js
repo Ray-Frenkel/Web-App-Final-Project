@@ -2,10 +2,13 @@ import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, unique: true },
-    slug: { type: String, required: true, unique: true },
+    winery: { type: String, required: true },
+    wine: { type: String, required: true },
+    rating: { type: Object, required: true },
+    location: { type: String, required: true },
     image: { type: String, required: true },
-    brand: { type: String, required: true },
+    id: { type: String, required: true },
+    slug: { type: String, required: true },
     price: { type: Number, required: true },
   },
   {

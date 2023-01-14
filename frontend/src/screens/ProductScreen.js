@@ -75,23 +75,23 @@ function ProductScreen() {
           <img
             className="img-large"
             src={product.image}
-            alt={product.name}
+            alt={product.wine}
           ></img>
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <Helmet>
-                <title>{product.name}</title>
+                <title>{product.wine}</title>
               </Helmet>
-              <h1>{product.name}</h1>
+              <h1>{product.wine}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
             </ListGroup.Item>
             <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
-              <p>{product.description}</p>
+              <p>{product.winery}</p>
             </ListGroup.Item>
           </ListGroup>
         </Col>

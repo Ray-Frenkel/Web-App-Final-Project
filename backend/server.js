@@ -7,7 +7,7 @@ import shoppingRouter from './routes/shoppingRouter.js'
 import bodyParser from 'body-parser';
 import cors from 'cors';
 mongoose
-  .connect('mongodb+srv://pro:DDwiYcBcxZDXEHDR@cluster0.iqfprtk.mongodb.net/Web2Task2')
+  .connect('mongodb+srv://pro:DDwiYcBcxZDXEHDR@cluster0.iqfprtk.mongodb.net/WineryStore')
   .then(() => {
     console.log('connected to db');
   })

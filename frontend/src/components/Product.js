@@ -16,6 +16,8 @@ function Product(props) {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${item._id}`);
+    const data1 = await axios.get(`/api/seed`);
+    console.log(data1);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -27,12 +29,13 @@ function Product(props) {
   };
 
   return (
-    <Card>
-      <img src={product.image} className="card-img-top" alt={product.name} />
+    <Card className="card">
+      <img src={product.image} className="card-img-top" alt={product.wine} />
       <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>${product.price}</Card.Text>
-        <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+        <Card.Title className="card-title">Winery: {product.winery}</Card.Title>
+        <Card.Text className="card-text">Wine Description: {product.wine}</Card.Text>
+        <Card.Text className="card-text">Price: ${product.price}</Card.Text>
+        <Button className="btnproduct" onClick={() => addToCartHandler(product)}>Add to cart</Button>
       </Card.Body>
     </Card>
   );
